@@ -53,6 +53,7 @@ document.getElementById('g').innerHTML = B.map(([n, g, t, u, tags]) => `
       <small>الجزء الأول · ${u}</small>
       <div class="tags">${tags.map(x => `<span>${x}</span>`).join('')}</div>
       <a class="btn go" href="grade${n}/">📖 افتح الكتاب</a>
+      <a class="btn dl" href="download/arabic${n}.apk" download>🤖 تطبيق أندرويد (APK)</a>
       <a class="btn dl" href="download/arabic${n}-offline.html" download>⬇️ نسخة دون إنترنت (ملف واحد)</a>
     </div>
   </div>`).join('');
