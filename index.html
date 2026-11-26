@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لغتي — الكتب التفاعلية (الصفوف ١–٦)</title>
+<link rel="icon" href="icon.png">
+<link rel="stylesheet" href="grade1/fonts/tajawal.css">
+<style>
+:root{--navy:#15445a;--teal:#0da9a6;--green:#07a869;--gold:#c1b489}
+*{box-sizing:border-box}
+body{margin:0;font-family:Tajawal,system-ui,sans-serif;background:#f6f3ec;color:#1d2b33}
+header{background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;padding:34px 18px 28px;text-align:center}
+header h1{margin:0 0 6px;font-size:34px}
+header p{margin:0;opacity:.9;font-size:18px}
+main{max-width:1100px;margin:0 auto;padding:24px 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.book{background:#fff;border-radius:18px;box-shadow:0 4px 18px #0001;overflow:hidden;display:flex;flex-direction:column}
+.book img{width:100%;aspect-ratio:5/6;object-fit:cover;background:#eee;display:block}
+.book .b{padding:12px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.book h2{margin:0;font-size:21px;color:var(--navy)}
+.book small{color:#667;font-size:14px}
+.btn{display:block;text-align:center;text-decoration:none;border-radius:12px;padding:10px;font-weight:800;font-size:16px}
+.go{background:var(--teal);color:#fff}
+.dl{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.tags{display:flex;gap:6px;flex-wrap:wrap}.tags span{background:#eef7f6;color:#0b6f6c;border-radius:20px;padding:2px 10px;font-size:13px;font-weight:700}
+footer{text-align:center;padding:26px;color:#667}
+</style>
+</head>
+<body>
+<header>
+  <h1>📘 لغتي — الكتب التفاعلية</h1>
+  <p>الصفوف من الأول إلى السادس الابتدائي · الجزء الأول · تعمل على الجوال والحاسب ودون إنترنت</p>
+</header>
+<main>
+  <div class="grid" id="g"></div>
+</main>
+<footer>تصميم: أ. فهد الشيخي</footer>
+<script>
+const B = [
+  [1, 'الأول', 'لغتي', 'التهيئة والاستعداد · أسرتي · مدرستي · مدينتي', ['قالب الأطفال', 'تتبّع الحروف']],
+  [2, 'الثاني', 'لغتي', 'أقاربي · أصدقائي وجيراني · وطني السعودية · محاصيل من بلادي', ['القراءة بالأدوار', 'أنا أقرأ']],
+  [3, 'الثالث', 'لغتي', 'التعامل مع الآخرين · ربوع من بلادي · أخلاق المسلم · وسائل الاتصالات', ['نافس']],
+  [4, 'الرابع', 'لغتي الجميلة', 'الوحدة الأولى: صحّتي وبيئتي', ['فهم المقروء']],
+  [5, 'الخامس', 'لغتي الجميلة', 'الوحدة الأولى: أخلاقٌ وفضائل', ['فهم المقروء']],
+  [6, 'السادس', 'لغتي الجميلة', 'الوحدة الأولى: قدواتٌ ومُثُلٌ عليا', ['فهم المقروء', 'نافس']],
+];
+document.getElementById('g').innerHTML = B.map(([n, g, t, u, tags]) => `
+  <div class="book">
+    <a href="grade${n}/"><img src="grade${n}/pages/1.webp" alt="غلاف ${t} الصف ${g}" loading="lazy"></a>
+    <div class="b">
+      <h2>${t} — الصف ${g}</h2>
+      <small>الجزء الأول · ${u}</small>
+      <div class="tags">${tags.map(x => `<span>${x}</span>`).join('')}</div>
+      <a class="btn go" href="grade${n}/">📖 افتح الكتاب</a>
+      <a class="btn dl" href="download/arabic${n}-offline.html" download>⬇️ نسخة دون إنترنت (ملف واحد)</a>
+    </div>
+  </div>`).join('');
+</script>
+</body>
+</html>
